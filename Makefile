@@ -31,7 +31,7 @@ link-linux: kernel_symlink
 
 kernel_symlink:
 	@:$(call check_defined, LINUX_KERNEL_PATH, path to linux kernel sources)
-	ln -s $(LINUX_KERNEL_PATH) kernel_symlink
+	ln -s $(shell readlink -f $(LINUX_KERNEL_PATH)) kernel_symlink
 
 build-libperf: kernel_symlink
 	rm -rf kernel_symlink/tools/perf
