@@ -141,3 +141,4 @@ anaconda-mode/
 
 
 # End of https://www.gitignore.io/api/git,c++,emacs
+kernel_symlink
