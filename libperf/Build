@@ -1,0 +1,43 @@
+perf-y += builtin-record.o
+perf-y += builtin-script.o
+perf-y += profiler-backend.o
+perf-y += perf-map-file.o
+perf-y += jvmti-agent.o
+perf-y += jni-wrapper.o
+perf-y += profiler.o
+
+#perf-$(CONFIG_AUDIT) += builtin-trace.o
+#perf-$(CONFIG_LIBELF) += builtin-probe.o
+
+perf-y += bench/
+perf-y += tests/
+
+perf-y += perf.o
+
+paths += -DPERF_HTML_PATH="BUILD_STR($(htmldir_SQ))"
+paths += -DPERF_INFO_PATH="BUILD_STR($(infodir_SQ))"
+paths += -DPERF_MAN_PATH="BUILD_STR($(mandir_SQ))"
+
+#CFLAGS_builtin-help.o      += $(paths)
+#CFLAGS_builtin-timechart.o += $(paths)
+CFLAGS_perf.o              += -DPERF_HTML_PATH="BUILD_STR($(htmldir_SQ))"	\
+			      -DPERF_EXEC_PATH="BUILD_STR($(perfexecdir_SQ))"	\
+			      -DPREFIX="BUILD_STR($(prefix_SQ))"
+CFLAGS_builtin-trace.o	   += -DSTRACE_GROUPS_DIR="BUILD_STR($(STRACE_GROUPS_DIR_SQ))"
+CFLAGS_builtin-report.o	   += -DTIPDIR="BUILD_STR($(tipdir_SQ))"
+CFLAGS_builtin-report.o	   += -DDOCDIR="BUILD_STR($(srcdir_SQ)/Documentation)"
+CFLAGS_perf-map-file.o	   += -I/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el7_4.x86_64/include/ -I/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el7_4.x86_64/include/linux/
+CXXFLAGS_jvmti-agent.o	   += -I/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el7_4.x86_64/include/ -I/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el7_4.x86_64/include/linux/
+CXXFLAGS_jni-wrapper.o	   += -I/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el7_4.x86_64/include/ -I/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el7_4.x86_64/include/linux/
+CXXFLAGS_profiler.o	   += -std=c++11
+CXXFLAGS_jvmti-agent.o	   += -std=c++1y
+CFLAGS			   += -fPIC
+CXXFLAGS		   += -fPIC
+
+libperf-y += util/
+libperf-y += arch/
+libperf-y += ui/
+libperf-y += scripts/
+libperf-$(CONFIG_AUDIT) += trace/beauty/
+
+gtk-y += ui/gtk/
