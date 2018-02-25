@@ -1,0 +1,143 @@
+PERF-CFLAGS
+PERF-GUI-VARS
+PERF-VERSION-FILE
+FEATURE-DUMP
+perf
+perf-read-vdso32
+perf-read-vdsox32
+perf-help
+perf-record
+perf-report
+perf-stat
+perf-top
+perf*.1
+perf*.xml
+perf*.html
+common-cmds.h
+perf.data
+perf.data.old
+output.svg
+perf-archive
+perf-with-kcore
+tags
+TAGS
+cscope*
+config.mak
+config.mak.autogen
+*-bison.*
+*-flex.*
+*.pyc
+*.pyo
+.config-detected
+util/intel-pt-decoder/inat-tables.c
+arch/*/include/generated/
+pmu-events/pmu-events.c
+pmu-events/jevents
+
+# Created by https://www.gitignore.io/api/git,c++,emacs
+
+### C++ ###
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+### Emacs ###
+# -*- mode: gitignore; -*-
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Org-mode
+.org-id-locations
+*_archive
+
+# flymake-mode
+*_flymake.*
+
+# eshell files
+/eshell/history
+/eshell/lastdir
+
+# elpa packages
+/elpa/
+
+# reftex files
+*.rel
+
+# AUCTeX auto folder
+/auto/
+
+# cask packages
+.cask/
+dist/
+
+# Flycheck
+flycheck_*.el
+
+# server auth directory
+/server/
+
+# projectiles files
+.projectile
+projectile-bookmarks.eld
+
+# directory configuration
+.dir-locals.el
+
+# saveplace
+places
+
+# url cache
+url/cache/
+
+# cedet
+ede-projects.el
+
+# smex
+smex-items
+
+# company-statistics
+company-statistics-cache.el
+
+# anaconda-mode
+anaconda-mode/
+
+### Git ###
+*.orig
+
+
+# End of https://www.gitignore.io/api/git,c++,emacs
